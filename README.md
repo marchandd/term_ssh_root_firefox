@@ -36,7 +36,7 @@ Search password value into build.log file to access later to container.
 
 :warning: If your Firewall is enabled on the host, with default outgoing policy turned to 
 deny, 
-you will have to disable 22 port filtering:
+you will have to disable 22 port filtering:  
 - Make a new rule for OpenSSH (22/TCP) to enable outgoing policy.
 
 ## Build container
@@ -78,12 +78,12 @@ When you are into SSH access.
 
 ### Display
 
-Make sure to have installed OpenSSH client or VNC client.
+Make sure to have installed OpenSSH client or SSH GUI client (Putty).
 
 ### Risks
 
 Root account from container is exposed.  
-Password is used and not a certificate.
+A password is used and not a certificate that could be more secure.
  
 ## Linux test environment remote client
 
@@ -98,7 +98,7 @@ Password is used and not a certificate.
 
 ### SSH client GUI
 
-Make sure X11 forwarding is enabled into SSH/X11 Configuration.
+:warning: Make sure X11 forwarding is enabled into SSH/X11 Configuration.
 
 - Windows (7 & 8.1)
 - Boot2Docker (1.4.1)
@@ -108,7 +108,6 @@ Make sure X11 forwarding is enabled into SSH/X11 Configuration.
   Address Boot2Docker_IPv4:PORT
 
 Remark:  
-Docker is accessing on Windows only throw VirtualBox network interface. 
-So, using 127.0.0.1 is not possible...
-- You must choose Boot2Docker_IPv4 remained at boot start into the 
-dedicated console.
+Docker is accessing on Windows only through VirtualBox network interface. 
+So, using 127.0.0.1 is not possible...  
+- You must choose Boot2Docker_IPv4 remained at boot start into the dedicated console.

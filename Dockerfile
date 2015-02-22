@@ -1,5 +1,5 @@
 FROM ubuntu:14.10
-MAINTAINER Marchand D. https://github.com/marchandd/vncxvfb_wine_firefox
+MAINTAINER Marchand D. https://github.com/marchandd/term_ssh_root_firefox
 RUN apt-get update && apt-get install -y openssh-server firefox supervisor dbus-x11 pwgen
 RUN mkdir /var/run/sshd
 #Fixed root password
@@ -21,5 +21,3 @@ EXPOSE 22
 WORKDIR /etc/supervisor
 # Supervisor daemon
 CMD supervisord -c /etc/supervisor/supervisor.conf
-#docker run -d -p 127.0.0.1:50022:22 YOUR_IMAGE_NAME
-#ssh root@127.0.0.1 -p 50022

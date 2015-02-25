@@ -2,14 +2,10 @@ FROM ubuntu:14.10
 MAINTAINER Marchand D. https://github.com/marchandd/term_ssh_root_firefox
 RUN apt-get update && apt-get install -y openssh-server firefox supervisor dbus-x11 pwgen
 RUN mkdir /var/run/sshd
-#Fixed root password
-#RUN echo 'root:root' |chpasswd
-#Dynamic root password
-RUN PASSWD=`pwgen -c -n -1 15`
-RUN echo 'root:$PASSWD' |chpasswd
-RUN echo 'root password access: $PASSWD' > ~/password.log
-RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
-RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
+# Copy root privileges script from local to root and run it
+COPY ./root_privileges.sh /root/
+RUN chmod 755 /root/*.sh
+RUN bash -c '/root/root_privileges.sh'
 # Supervisor settings for ssl
 COPY ./supervisor/supervisor.conf /etc/supervisor/supervisor.conf
 RUN chmod 775 /etc/supervisor/*.conf

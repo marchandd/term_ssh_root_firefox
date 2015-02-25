@@ -1,0 +1,10 @@
+#!/bin/bash
+#Fixed root password
+#RUN echo 'root:root' |chpasswd
+#Dynamic root password
+PASSWD=`pwgen -c -n -1 15`
+echo "root:$PASSWD" |chpasswd
+echo "root password access: $PASSWD"
+echo "root password access: $PASSWD" > ~/password.log
+sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config

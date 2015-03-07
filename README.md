@@ -12,7 +12,7 @@ Easy method to produce a light GUI containers to access to Firefox into sandbox 
 
 ### Image size
 
-Around 500 Mb.
+Around 450 Mb.
 
 ### References
 

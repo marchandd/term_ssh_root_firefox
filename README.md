@@ -39,7 +39,7 @@ you will have to disable 22 port filtering:
 
 ### Command line
 
-:computer: `docker run -d -p XXX.XXX.XXX.XXX:YYYYY:22 marchandd/term_ssh_root_firefox`
+:computer: `docker run -d -p XXX.XXX.XXX.XXX:YYYYY:22 --name latest_term_ssh_root_firefox marchandd/term_ssh_root_firefox`
 
 Where XXX.XXX.XXX.XXX is your IP v4 address.  
 Where YYYYY is your Private port, if you doesn't know free port, try from 49200...

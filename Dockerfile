@@ -1,6 +1,6 @@
-FROM ubuntu:14.10
+FROM ubuntu
 MAINTAINER Marchand D. https://github.com/marchandd/term_ssh_root_firefox
-ENV VE_version="MarchandD_20150306_v01.01" 
+ENV VE_version="MarchandD_20151117_v02.01" 
 RUN apt-get update && apt-get install -y openssh-server firefox supervisor dbus-x11 pwgen
 RUN mkdir /var/run/sshd
 # Copy root privileges script from local to ve and run it
